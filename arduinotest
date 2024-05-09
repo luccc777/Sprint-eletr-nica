@@ -1,0 +1,272 @@
+int d=3, c=2, b=1, a=0;
+int h=7,g=6,f=5,e=4;
+int l=11,k=10,j=9,i=8;
+
+
+int n=0; //Setting initial value of n to 0
+int d1;
+int d2;
+int d3;
+int state = 0;
+int state_2 = 0;
+int button = 12;
+int button_2 = 13;
+
+void setup()
+{
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(button,INPUT_PULLUP);
+  pinMode(button_2,INPUT_PULLUP);
+}
+
+void loop(){
+ state = digitalRead(button);
+ state_2 = digitalRead(button_2);
+ if(state == HIGH)
+    n++;
+
+ if(state_2 == HIGH)
+    n--;
+  
+ if(n==1000)
+    n=0;
+
+ if(n==-1)
+    n=999;
+  
+ d1=n%10; // This will divide n by 10 and the remainder will be stored in d1
+ d2=n/10; // This will divide n by 10 and the value before decimal will be stored in d2
+ d3 = n/100;
+
+ disp1(d1);
+ disp2(d2);
+ disp3(d3);
+ delay(100);//100 ms delay to debounce
+}
+
+void disp1(int num){
+  if(num == 0)//0000
+  {
+    digitalWrite(a, LOW); 
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+  }
+  if(num == 1)//0001
+  {
+    digitalWrite(a, HIGH);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+  }
+  if(num == 2)//0010
+  {
+    digitalWrite(a, LOW);//0
+    digitalWrite(b, HIGH);//1
+    digitalWrite(c, LOW);//0
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 3)//0011
+  {
+    digitalWrite(a, HIGH);//1
+    digitalWrite(b, HIGH);//1
+    digitalWrite(c, LOW);//0
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 4)//0100
+  {
+    digitalWrite(a, LOW);//0
+    digitalWrite(b, LOW);//0
+    digitalWrite(c, HIGH);//1
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 5)//0101
+  {
+    digitalWrite(a, HIGH);//1
+    digitalWrite(b, LOW);//0
+    digitalWrite(c, HIGH);//1
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 6)//0110
+  {
+    digitalWrite(a, LOW);//0
+    digitalWrite(b, HIGH);//1
+    digitalWrite(c, HIGH);//1
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 7) //0111
+  {
+    digitalWrite(a, HIGH);//1
+    digitalWrite(b, HIGH);//1
+    digitalWrite(c, HIGH);//1
+    digitalWrite(d, LOW);//0
+  }
+  if(num == 8) //1000
+  {
+    digitalWrite(a, LOW);//0
+    digitalWrite(b, LOW);//0
+    digitalWrite(c, LOW);//0
+    digitalWrite(d, HIGH);//1
+  }
+  if(num == 9)//1001
+  {
+    digitalWrite(a, HIGH);//1
+    digitalWrite(b, LOW);//0
+    digitalWrite(c, LOW);//0
+    digitalWrite(d, HIGH);//1
+  }
+}
+
+void disp2(int num){
+  if(num == 0)//0000
+  {
+    digitalWrite(e, LOW); 
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW);
+    digitalWrite(h, LOW);
+  }
+  if(num == 1)//0001
+  {
+    digitalWrite(e, HIGH);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW);
+    digitalWrite(h, LOW);
+  }
+  if(num == 2)//0010
+  {
+    digitalWrite(e, LOW);//0
+    digitalWrite(f, HIGH);//1
+    digitalWrite(g, LOW);//0
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 3)//0011
+  {
+    digitalWrite(e, HIGH);//1
+    digitalWrite(f, HIGH);//1
+    digitalWrite(g, LOW);//0
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 4)//0100
+  {
+    digitalWrite(e, LOW);//0
+    digitalWrite(f, LOW);//0
+    digitalWrite(g, HIGH);//1
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 5)//0101
+  {
+    digitalWrite(e, HIGH);//1
+    digitalWrite(f, LOW);//0
+    digitalWrite(g, HIGH);//1
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 6)//0110
+  {
+    digitalWrite(e, LOW);//0
+    digitalWrite(f, HIGH);//1
+    digitalWrite(g, HIGH);//1
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 7) //0111
+  {
+    digitalWrite(e, HIGH);//1
+    digitalWrite(f, HIGH);//1
+    digitalWrite(g, HIGH);//1
+    digitalWrite(h, LOW);//0
+  }
+  if(num == 8) //1000
+  {
+    digitalWrite(e, LOW);//0
+    digitalWrite(f, LOW);//0
+    digitalWrite(g, LOW);//0
+    digitalWrite(h, HIGH);//1
+  }
+  if(num == 9)//1001
+  {
+    digitalWrite(e, HIGH);//1
+    digitalWrite(f, LOW);//0
+    digitalWrite(g, LOW);//0
+    digitalWrite(h, HIGH);//1
+  }
+}
+
+void disp3(int num){
+  if(num == 0)//0000
+  {
+    digitalWrite(i, LOW); 
+    digitalWrite(j, LOW);
+    digitalWrite(k, LOW);
+    digitalWrite(l, LOW);
+  }
+  if(num == 1)//0001
+  {
+    digitalWrite(i, HIGH);
+    digitalWrite(j, LOW);
+    digitalWrite(k, LOW);
+    digitalWrite(l, LOW);
+  }
+  if(num == 2)//0010
+  {
+    digitalWrite(i, LOW);//0
+    digitalWrite(j, HIGH);//1
+    digitalWrite(k, LOW);//0
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 3)//0011
+  {
+    digitalWrite(i, HIGH);//1
+    digitalWrite(j, HIGH);//1
+    digitalWrite(k, LOW);//0
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 4)//0100
+  {
+    digitalWrite(i, LOW);//0
+    digitalWrite(j, LOW);//0
+    digitalWrite(k, HIGH);//1
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 5)//0101
+  {
+    digitalWrite(i, HIGH);//1
+    digitalWrite(j, LOW);//0
+    digitalWrite(k, HIGH);//1
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 6)//0110
+  {
+    digitalWrite(i, LOW);//0
+    digitalWrite(j, HIGH);//1
+    digitalWrite(k, HIGH);//1
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 7) //0111
+  {
+    digitalWrite(i, HIGH);//1
+    digitalWrite(j, HIGH);//1
+    digitalWrite(k, HIGH);//1
+    digitalWrite(l, LOW);//0
+  }
+  if(num == 8) //1000
+  {
+    digitalWrite(i, LOW);//0
+    digitalWrite(j, LOW);//0
+    digitalWrite(k, LOW);//0
+    digitalWrite(l, HIGH);//1
+  }
+  if(num == 9)//1001
+  {
+    digitalWrite(i, HIGH);//1
+    digitalWrite(j, LOW);//0
+    digitalWrite(k, LOW);//0
+    digitalWrite(l, HIGH);//1
+  }
+}
+
